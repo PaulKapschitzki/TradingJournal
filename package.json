@@ -1,0 +1,22 @@
+{
+  "name": "tradingjournal",
+  "version": "1.0.0",
+  "description": "App to track trades made with a broker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulKapschitzki/TradingJournal.git"
+  },
+  "author": "PaulKapschitzki",
+  "license": "SEE LICENCE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/PaulKapschitzki/TradingJournal/issues"
+  },
+  "homepage": "https://github.com/PaulKapschitzki/TradingJournal#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
