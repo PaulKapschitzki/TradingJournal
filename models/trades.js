@@ -20,5 +20,8 @@ const tradesSchema = new Schema({
     exitDateSecondTarget: Date,
     exitDateThirdTarget: Date,
     profitLossCurrency: Number,
-    profitLossPips: Number
+    profitLossPips: Number,
+    notesEntry: String,
+    notesExit: String,
+    notesGeneral: String
 });
