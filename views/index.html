@@ -6,6 +6,30 @@
     <title>Trading Journal</title>
 </head>
 <body>
-    <h1>This is the Trading Journal index.html</h1>
+    <header>
+        <h1>This is the Trading Journal index.html</h1>
+    </header>
+    <main>
+        <section id="tradeEntry">
+            <form action="/trades" method="POST">
+                <input type="text" placeholder="Symbole" name="symbole">
+                <label>Order</label>
+                    <select name="direction" size="2">
+                        <option>Buy</option>
+                        <option>Sell</option>
+                    </select>
+                <label>Entry Price</label>
+                    <input type="number" value="0.00001" name="price" step="0.00001">
+                <label>Stop Loss/label>
+                    <input type="number" value="0.00001" name="stopLoss" step="0.00001">
+                <label>Take Profit</label>
+                    <input type="number" value="0.00001" name="entry" step="0.00001">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
 </body>
 </html>
