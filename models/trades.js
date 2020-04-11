@@ -6,14 +6,19 @@ const Schema = mongoose.Schema;
 
 const tradesSchema = new Schema({
     // determining the data type for used values
-    symbole: String,
-    direction: String,
+    status: String, // active or closed
+    symbole: String, // Forex symbole
+    direction: String, // buy or sell (long or short)
     entryPrice: Number,
     exitPrice: Number,
     stopLoss: Number,
     firstTraget: Number,
     secondTarget: Number,
     thirdTarged: Number,
+    created: {
+        type: Date,
+        default: Date.now
+    },
     entryDate: Date,
     exitDate: Date,
     exitDateFirstTarget: Date,
@@ -26,4 +31,4 @@ const tradesSchema = new Schema({
     notesGeneral: String
 });
 
-module.exports = mongoose.model('trades', tradesSchema);
+module.exports = mongoose.model('Trades', tradesSchema);

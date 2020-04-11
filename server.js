@@ -13,17 +13,22 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended: true}));
 
 // Connecting to database
-mongoose.connect(url, { useNewUrlParser: true });
+mongoose.connect(url, { useUnifiedTopology: true }); // or useNewUrlParser: true
 
 // Check if connection works
 const db = mongoose.connection;
 db.once('open', _ => {
     console.log('Database connected: ', url);
 });
-
+// Catch connection error
 db.on('error', err => {
     console.log('connection error: ', err);
 });
+
+// Check if connection works with promises
+// db.connect('open')
+//     .then(trade => { console.log(trade) })
+//     .catch(error => { console.log(error) });
 
 // Basic get function
 app.get("/", (req, res) => {
