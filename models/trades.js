@@ -25,3 +25,5 @@ const tradesSchema = new Schema({
     notesExit: String,
     notesGeneral: String
 });
+
+module.exports = mongoose.model('trades', tradesSchema);
