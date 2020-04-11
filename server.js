@@ -9,6 +9,11 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html"); //Note: __dirname is the directory you are in.
 });
 
+// post route for writing into database
+app.post("/trades", (req, res) => {
+    console.log("Posting my trades!");
+});
+
 // setup listener
 app.listen(port, () => {
     console.log("listening on " + port);
