@@ -11,4 +11,7 @@ const trades_controller = require('../controllers/trades.controller');
 // A simple test url to check that all of our files ar communicating correctly
 router.get('/test', trades_controller.test);
 
+// Url to create a new trade entry
+router.post('/new_trade', trades_controller.new_trade);
+
 module.exports = router;
