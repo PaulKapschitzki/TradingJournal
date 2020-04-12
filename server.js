@@ -17,18 +17,22 @@ mongoose.connect(url, { useUnifiedTopology: true }); // or useNewUrlParser: true
 
 // Check if connection works
 const db = mongoose.connection;
-db.once('open', _ => {
-    console.log('Database connected: ', url);
-});
-// Catch connection error
-db.on('error', err => {
-    console.log('connection error: ', err);
-});
+// db.once('open', _ => {
+//     console.log('Database connected: ', url);
+// });
+// // Catch connection error
+// db.on('error', err => {
+//     console.log('connection error: ', err);
+// });
 
 // Check if connection works with promises
-// db.connect('open')
-//     .then(trade => { console.log(trade) })
-//     .catch(error => { console.log(error) });
+db.connect('open')
+    .then(trade => {
+        // Put Express handlers into 'then' to access db variable
+        // console.log(trade)
+        const tradesCollection = db.collection('trades');
+    })
+    .catch(error => { console.log(error) })
 
 // Basic get function
 app.get("/", (req, res) => {
@@ -40,7 +44,11 @@ app.get("/", (req, res) => {
 // POST route for writing into database
 app.post('/trades', (req, res) => {
     // console.log("Posting my trades!");
-    console.log(req.body);
+    tradesCollection.insertOne(req, body)
+        .then(result => {
+            console.log(result);
+        })
+        .catch(error => console.log(error))
 });
 
 // Setup listener

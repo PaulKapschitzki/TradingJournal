@@ -4,7 +4,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const tradesSchema = new Schema({
+const TradesSchema = new Schema({
     // determining the data type for used values
     status: String, // active or closed
     symbole: String, // Forex symbole
@@ -31,4 +31,4 @@ const tradesSchema = new Schema({
     notesGeneral: String
 });
 
-module.exports = mongoose.model('Trades', tradesSchema);
+module.exports = mongoose.model('Trades', TradesSchema);

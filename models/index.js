@@ -6,8 +6,8 @@ mongoose.set('debug', true);
 mongoose.connect('mongodb://localhost:27017/trading-journal', { useUnifiedTopology: true });
 //mongoose.connect('mongodb://localhost/trading-journal');
 
-// make available the use of javascript promises like "then" and catch (standard js promises)
+// make available the use of javascript promises like "then" and "catch" (standard js promises)
 mongoose.Promise = Promise;
 
 // requiring the trades.js file and exporting that out
-module.exports.Trades = require("./trades");
+module.exports.Trades = require("./trades.model");
