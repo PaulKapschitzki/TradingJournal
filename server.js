@@ -3,6 +3,7 @@ const bodyParser = require('body-parser'); // Middleware
 // const MongoClient = require('mongodb').MongoClient; // For using mongodb with the native driver instead of mongoose
 const mongoose = require('mongoose');
 const url = 'mongodb://127.0.0.1:27017/trading-journal';
+const trades = require('./routes/trades.route'); // Import routes for trades
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -12,27 +13,30 @@ const port = process.env.PORT || 3000;
 // 'body' property in the request object
 app.use(bodyParser.urlencoded({extended: true}));
 
+// Use trades route
+app.use('/trades', trades);
+
 // Connecting to database
-mongoose.connect(url, { useUnifiedTopology: true }); // or useNewUrlParser: true
+mongoose.connect(url, { useNewUrlParser: true }); // or useNewUrlParser: true
 
 // Check if connection works
 const db = mongoose.connection;
-// db.once('open', _ => {
-//     console.log('Database connected: ', url);
-// });
-// // Catch connection error
-// db.on('error', err => {
-//     console.log('connection error: ', err);
-// });
+db.once('open', _ => {
+    console.log('Database connected: ', url);
+});
+// Catch connection error
+db.on('error', err => {
+    console.log('connection error: ', err);
+});
 
 // Check if connection works with promises
-db.connect('open')
-    .then(trade => {
-        // Put Express handlers into 'then' to access db variable
-        // console.log(trade)
-        const tradesCollection = db.collection('trades');
-    })
-    .catch(error => { console.log(error) })
+// db.connect('open')
+//     .then(trade => {
+//         // Put Express handlers into 'then' to access db variable
+//         // console.log(trade)
+//         const tradesCollection = db.collection('trades');
+//     })
+//     .catch(error => { console.log(error) })
 
 // Basic get function
 app.get("/", (req, res) => {
