@@ -29,10 +29,18 @@ exports.trade_detail = (req, res) => {
     });
 };
 
-// trade_detail controller - Update
+// trade_update controller - Update
 exports.trade_update = (req, res) => {
     Trades.findByIdAndUpdate(req.params.id, {$set: req.body}, (err, trade) => {
         if (err) return next(err);
-        res.send('Trade updated!');
+        res.send('Trade updated successfully!');
+    });
+};
+
+// trade_delete controller - Delete
+exports.trade_delete = (req, res) => {
+    Trades.findOneAndRemove(req.params.id, (err, trade) => {
+        if (err) return next(err);
+        res.send('Trade deleted successfully!');
     });
 };

@@ -18,6 +18,9 @@ router.post('/new', trades_controller.new_trade);
 router.get('/:id', trades_controller.trade_detail);
 
 // Update item in database - Update route
-router.put('/:id/edit', trades_controller.trade_update)
+router.put('/:id/edit', trades_controller.trade_update);
+
+// Delete an item in the database - Delete route
+router.delete('/:id/delete', trades_controller.trade_delete);
 
 module.exports = router;
