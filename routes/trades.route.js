@@ -11,10 +11,13 @@ const trades_controller = require('../controllers/trades.controller');
 // A simple test url to check that all of our files ar communicating correctly
 router.get('/test', trades_controller.test);
 
-// Reading/Finding an item in the database
+// Url to create a new trade entry - Create route
+router.post('/new', trades_controller.new_trade);
+
+// Read one item from database by id: - Read route
 router.get('/:id', trades_controller.trade_detail);
 
-// Url to create a new trade entry
-router.post('/new_trade', trades_controller.new_trade);
+// Update item in database - Update route
+router.put('/:id/edit', trades_controller.trade_update)
 
 module.exports = router;
