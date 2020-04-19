@@ -31,4 +31,7 @@ const TradesSchema = new Schema({
     notesGeneral: String
 });
 
+// Set the collection 'trades' for this Schema
+TradesSchema.set('collection', 'trades');
+
 module.exports = mongoose.model('Trades', TradesSchema);
