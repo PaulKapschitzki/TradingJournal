@@ -17,17 +17,22 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/trades', trades);
 
 // Connecting to database
-mongoose.connect(url, { useNewUrlParser: true }); // or useNewUrlParser: true
+mongoose.connect(url, { useNewUrlParser: true },(err) => {
+    if (!err) { console.log("MongoDB Connection Succeded!");}
+    else {
+        console.log("An Error Occured: " + err);
+    }
+}); // or useNewUrlParser: true
 
-// Check if connection works
-const db = mongoose.connection;
-db.once('open', _ => {
-    console.log('Database connected: ', url);
-});
-// Catch connection error
-db.on('error', err => {
-    console.log('connection error: ', err);
-});
+// // Check if connection works - Alternative way
+// const db = mongoose.connection;
+// db.once('open', _ => {
+//     console.log('Database connected: ', url);
+// });
+// // Catch connection error
+// db.on('error', err => {
+//     console.log('connection error: ', err);
+// });
 
 // Basic get function
 app.get("/", (req, res) => {
