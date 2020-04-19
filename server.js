@@ -5,9 +5,10 @@ const mongoose = require('mongoose');
 const url = 'mongodb://127.0.0.1:27017/trading-journal';
 const trades = require('./routes/trades.route'); // Import routes for trades
 const app = express();
-const port = process.env.PORT || 3000;
+const path = require('path');
 
 // Set template tool ejs (alterative: jade aka pug, or handlebars(from express))
+app.set('views', path.join(__dirname, 'views'));
 // as template engine
 app.set('view engine', 'ejs');
 
@@ -44,11 +45,12 @@ app.get("/", (req, res) => {
     // console.log("dirname: " + __dirname);
     db.collection('trades').find().toArray()
         .then(results => {
-            console.log(results)
+            // render database entries to index page (<%= trades %>)
+            res.render('index.ejs', { trades: results });
         })
         .catch(error => console.log(error));
     // res.sendFile(__dirname + '/views/index.html'); //Note: __dirname is the directory you are in.
-    res.render('index.ejs', {});
+    // res.render('index.ejs', {});
 });
 
 // // POST route for writing into database
@@ -62,6 +64,7 @@ app.get("/", (req, res) => {
 //     .catch(error => console.log(error))
 // });
 
+const port = process.env.PORT || 3000;
 // Setup listener
 app.listen(port, () => {
     console.log('listening on ' + port);
