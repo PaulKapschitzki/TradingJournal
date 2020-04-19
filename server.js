@@ -43,8 +43,10 @@ app.get("/", (req, res) => {
     // res.send("Hello Trading Journal");
     // console.log("dirname: " + __dirname);
     db.collection('trades').find().toArray()
-        .then(/*...*/)
-        .catch(/*...*/)
+        .then(results => {
+            console.log(results)
+        })
+        .catch(error => console.log(error));
     // res.sendFile(__dirname + '/views/index.html'); //Note: __dirname is the directory you are in.
     res.render('index.ejs', {});
 });

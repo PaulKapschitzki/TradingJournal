@@ -17,7 +17,8 @@ exports.new_trade = (req, res) => {
         if (err) {
             return next(err);
         }
-        res.send('New trade created successfully!');
+        // res.send('New trade created successfully!');
+        res.redirect('/');
     });
 };
 
