@@ -7,6 +7,10 @@ const trades = require('./routes/trades.route'); // Import routes for trades
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Set template tool ejs (alterative: jade aka pug, or handlebars(from express))
+// as template engine
+app.set('view engine', 'ejs');
+
 // Make sure you place body-parser before the CRUD handlers!
 // body-parser is a middleware to tidy up the request object before use
 // urlencoded extracts data from <form> element and adds them to
@@ -24,8 +28,8 @@ mongoose.connect(url, { useNewUrlParser: true },(err) => {
     }
 }); // or useNewUrlParser: true
 
-// // Check if connection works - Alternative way
-// const db = mongoose.connection;
+// Check if connection works - Alternative way
+const db = mongoose.connection;
 // db.once('open', _ => {
 //     console.log('Database connected: ', url);
 // });
@@ -38,7 +42,11 @@ mongoose.connect(url, { useNewUrlParser: true },(err) => {
 app.get("/", (req, res) => {
     // res.send("Hello Trading Journal");
     // console.log("dirname: " + __dirname);
-    res.sendFile(__dirname + '/views/index.html'); //Note: __dirname is the directory you are in.
+    db.collection('trades').find().toArray()
+        .then(/*...*/)
+        .catch(/*...*/)
+    // res.sendFile(__dirname + '/views/index.html'); //Note: __dirname is the directory you are in.
+    res.render('index.ejs', {});
 });
 
 // // POST route for writing into database
