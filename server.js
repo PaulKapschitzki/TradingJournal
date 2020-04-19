@@ -29,15 +29,6 @@ db.on('error', err => {
     console.log('connection error: ', err);
 });
 
-// Check if connection works with promises
-// db.connect('open')
-//     .then(trade => {
-//         // Put Express handlers into 'then' to access db variable
-//         // console.log(trade)
-//         const tradesCollection = db.collection('trades');
-//     })
-//     .catch(error => { console.log(error) })
-
 // Basic get function
 app.get("/", (req, res) => {
     // res.send("Hello Trading Journal");
@@ -45,15 +36,16 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + '/views/index.html'); //Note: __dirname is the directory you are in.
 });
 
-// POST route for writing into database
-app.post('/trades', (req, res) => {
-    // console.log("Posting my trades!");
-    tradesCollection.insertOne(req, body)
-        .then(result => {
-            console.log(result);
-        })
-        .catch(error => console.log(error))
-});
+// // POST route for writing into database
+// app.post('/trades', (req, res) => {
+//     // console.log("Posting my trades!");
+//     // insertOne is not supported by mongoose model trades.insertOne(req, body)
+//     trades.create(req.body)
+//     .then(result => {
+//         console.log(result);
+//     })
+//     .catch(error => console.log(error))
+// });
 
 // Setup listener
 app.listen(port, () => {

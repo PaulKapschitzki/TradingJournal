@@ -12,7 +12,8 @@ const trades_controller = require('../controllers/trades.controller');
 router.get('/test', trades_controller.test);
 
 // Url to create a new trade entry - Create route
-router.post('/new', trades_controller.new_trade);
+// The submit form needs to be on this page
+router.post('/', trades_controller.new_trade);
 
 // Read one item from database by id: - Read route
 router.get('/:id', trades_controller.trade_detail);
