@@ -37,8 +37,18 @@
                     <input type="number" value="0.00001" name="entry" step="0.00001">
                 <button type="submit">Submit</button>
             </form>
-            <h3>Trade History</h3>
-            <%= trades %>
+            <h3>Trades</h3>
+            <ul class="trades">
+                <!-- Loop through trades -->
+                <% for (let i = 0; i < trades.length; i++) {%>
+                    <li class="trade">
+                        <!-- Output symbole from the iterated trad object -->
+                        <span><%= trades[i].symbole %></span>:
+                        <!-- Output further property from the interated trade object -->
+                        <span><%= trades[i].created %></span>
+                    </li>
+                <% } %>
+            </ul>
         </section>
     </main>
     <footer>
