@@ -12,7 +12,7 @@ const trades_controller = require('../controllers/trades.controller');
 // router.get('/test', trades_controller.test);
 
 // Get all trades
-router.get('/', trades_controller.all_trades);
+router.get('/all_trades', trades_controller.all_trades);
 
 // Url to create a new trade entry - Create route
 // The submit form needs to be on this page

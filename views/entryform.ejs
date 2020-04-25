@@ -1,12 +1,4 @@
-<!-- Initial landing page -->
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Journal</title>
-</head>
-<body>
+<%- include('partials/_header') %>
     <header>
         <p>### Header ###</p>
         <h1>Enter a new trade</h1>
@@ -54,7 +46,4 @@
     <footer>
         <p>### Footer ###</p>
     </footer>
-    <!-- After making public/main.js public with middleware express.static -->
-    <script src="/main.js"></script>
-</body>
-</html>
+<%- include('partials/_footer') %>
