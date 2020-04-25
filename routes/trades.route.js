@@ -5,15 +5,18 @@
 const express = require('express');
 const router = express.Router();
 
-// Require the controllers
+// Require the trades controller
 const trades_controller = require('../controllers/trades.controller');
 
 // A simple test url to check that all of our files ar communicating correctly
-router.get('/test', trades_controller.test);
+// router.get('/test', trades_controller.test);
+
+// Get all trades
+router.get('/', trades_controller.all_trades);
 
 // Url to create a new trade entry - Create route
 // The submit form needs to be on this page
-router.post('/', trades_controller.new_trade);
+router.post('/create', trades_controller.trade_create);
 
 // Read one item from database by id: - Read route
 router.get('/:id', trades_controller.trade_detail);

@@ -6,19 +6,16 @@ const Schema = mongoose.Schema;
 
 const TradesSchema = new Schema({
     // determining the data type for used values
-    status: String, // active or closed
-    symbole: String, // Forex symbole
-    direction: String, // buy or sell (long or short)
-    entryPrice: Number,
-    exitPrice: Number,
-    stopLoss: Number,
-    firstTraget: Number,
-    secondTarget: Number,
-    thirdTarged: Number,
-    created: {
-        type: Date,
-        default: Date.now
-    },
+    status: {type: String, required: true, default: 'active'}, // active or closed
+    symbole: {type: String, required: true, max: 6}, // Forex symbole
+    direction: {type: String, required: true, max: 4}, // buy or sell (long or short)
+    entryPrice: {type: Number, required: true},
+    exitPrice: {type: Number, required: true},
+    stopLoss: {type: Number, required: true},
+    firstTraget: {type: Number, required: true},
+    secondTarget: {type: Number, required: true},
+    thirdTarged: {type: Number, required: true},
+    created: {type: Date, required: true, default: Date.now},
     entryDate: Date,
     exitDate: Date,
     exitDateFirstTarget: Date,
