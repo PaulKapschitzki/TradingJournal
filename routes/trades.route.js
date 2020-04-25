@@ -9,7 +9,7 @@ const router = express.Router();
 const trades_controller = require('../controllers/trades.controller');
 
 // A simple test url to check that all of our files ar communicating correctly
-// router.get('/test', trades_controller.test);
+router.get('/test', trades_controller.test);
 
 // Get all trades
 router.get('/all_trades', trades_controller.all_trades);

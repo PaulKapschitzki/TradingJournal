@@ -56,6 +56,7 @@ exports.all_trades = (req, res) => {
             if (data === undefined || data.length == 0) message = 'No trade found!';
             else message = 'Trades successfully retrieved';
             
+            // res.json(data);
             res.send({
                 success: true,
                 message: message,
