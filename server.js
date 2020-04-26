@@ -25,12 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 // app.use('/trades', tradesRouter);
 
-// DELETE: Throws 404 error on all routes
-// catch 404 and forward to error handler
-// app.use((req, res, next) => {
-//     next(createError(404));
-// });
-
 // adds the prefix "/api/trades" to all routes so that in the external routes file "routes/trades.route.js"
 // the route router.get("/", function(req, res) {...}); actually is /api/trades/ 
 app.use("/api/trades", tradesRouter);
