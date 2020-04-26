@@ -1,5 +1,4 @@
 // Entry point for this project
-
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -24,7 +23,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/trades', tradesRouter);
+// app.use('/trades', tradesRouter);
 
 // DELETE: Throws 404 error on all routes
 // catch 404 and forward to error handler
