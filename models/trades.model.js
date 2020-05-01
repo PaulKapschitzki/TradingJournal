@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 
 const TradesSchema = new Schema({
     // determining the data type for used values
+    numberPositions: {type: Number, required: true, default: 2},
     status: {type: String, required: true, default: 'active'}, // active or closed
     symbole: {type: String, required: true, max: 6}, // Forex symbole
     direction: {type: String, required: true, max: 4}, // buy or sell (long or short)

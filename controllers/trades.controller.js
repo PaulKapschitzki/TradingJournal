@@ -9,6 +9,7 @@ exports.test = (req, res) => {
 exports.trade_create = (req, res) => {
     // validate request
     let trade = new Trades({
+        numberPositions: req.body.numberPositions,
         status: req.body.status,
         symbole: req.body.symbole,
         direction: req.body.direction,
