@@ -21,7 +21,7 @@ const TradesSchema = new Schema({
     stopLoss:               {type: Number, required: true},
     firstTraget:            {type: Number, required: true},
     secondTarget:           {type: Number, required: true},
-    thirdTarged:            {type: Number, required: true},
+    thirdTarget:            {type: Number, required: true},
     created:                {type: Date, required: true, default: Date.now},
     entryDate:              {type: Date, required: false, default: Date.now},
     exitDate:               {type: Date, required: false, default: Date.now},

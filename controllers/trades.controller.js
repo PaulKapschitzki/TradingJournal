@@ -25,7 +25,7 @@ exports.trade_create = (req, res) => {
         stopLoss:               req.body.stopLoss,
         firstTraget:            req.body.firstTraget,
         secondTarget:           req.body.secondTarget,
-        thirdTarged:            req.body.thirdTarged,
+        thirdTarget:            req.body.thirdTarget,
         entryDate:              req.body.entryDate,
         exitDate:               req.body.exitDate,
         exitDateFirstTarget:    req.body.exitDateFirstTarget,
