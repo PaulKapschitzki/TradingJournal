@@ -8,6 +8,7 @@ const TradesSchema = new Schema({
     // determining the data type for used values
     tradeNumber:            {type: Number, required: true},
     numberPositions:        {type: Number, required: true, default: 2},
+    type:                   {type: String, required: true, default: 'Pending Order'}, // "Pending Order" or "Market Order"
     status:                 {type: String, required: true, default: 'Open'}, // Open, Active or Closed
     symbole:                {type: String, required: true, max: 6}, // Forex symbole
     setup:                  {type: String, required: true}, // Pinbar, 2BarReversal, ...
@@ -34,7 +35,8 @@ const TradesSchema = new Schema({
     notesExit:              {type: String},
     notesGeneral:           {type: String},
     accordingToPlan:        {type: String, required: false}, // Yes or No
-    image:                  {type: BSON}
+    imageEntry:             {type: Buffer},
+    imageExit:              {type: Buffer}
 });
 
 // Set the collection 'trades' for this Schema

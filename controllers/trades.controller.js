@@ -12,6 +12,7 @@ exports.trade_create = (req, res) => {
         tradeNumber:            req.body.tradeNumber,
         numberPositions:        req.body.numberPositions,
         position:               req.body.position,
+        type:                   req.body.type,
         status:                 req.body.status,
         symbole:                req.body.symbole,
         setup:                  req.body.setup,
@@ -37,7 +38,8 @@ exports.trade_create = (req, res) => {
         notesExit:              req.body.notesExit,
         notesGeneral:           req.body.notesGeneral,
         accordingToPlan:        req.body.accordingToPlan,
-        image:                  req.body.image
+        imageEntry:             req.body.imageEntry,
+        imageExit:              req.body.imageExit
     });
 
     trade.save()
