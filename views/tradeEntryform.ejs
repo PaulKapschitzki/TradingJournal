@@ -1,0 +1,49 @@
+<%- include('partials/_header') %>
+    <header>
+        <p>### Header ###</p>
+        <h1>Enter a new trade</h1>
+    </header>
+    <main>
+        <p>### Main ###</p>
+        <!-- form for entering parameters of current trade -->
+        <section id="tradeEntry">
+            <p>### Section "tradeEntry" ###</p>
+            <!-- using method="POST" to enter data into database -->
+            <form action="/trades" method="POST">
+                <p>### Input Form Trade ###</p>
+                <input type="text" placeholder="Symbole" name="symbole">
+                <label>Order</label>
+                <!-- size attribute determines the standard number of shown lines in selection list -->
+                <!-- e.g. size="2" would show "Buy" and "Sell" at the same time-->
+                    <select name="direction" size="1">
+                        <option>Buy</option>
+                        <option>Sell</option>
+                    </select>
+                <label>Entry Price</label>
+                <!-- step attribute determines determines the in-/decremental steps for the number -->
+                <!-- price in forex is given with 5 decimal -->
+                    <input type="number" value="0.00001" name="price" step="0.00001">
+                <label>Stop Loss</label>
+                    <input type="number" value="0.00001" name="stopLoss" step="0.00001">
+                <label>Take Profit</label>
+                    <input type="number" value="0.00001" name="entry" step="0.00001">
+                <button type="submit">Submit</button>
+            </form>
+            <h3>Trades</h3>
+            <ul class="trades">
+                <!-- Loop through trades -->
+                <% for (let i = 0; i < trades.length; i++) {%>
+                    <li class="trade">
+                        <!-- Output symbole from the iterated trad object -->
+                        <span><%= trades[i].symbole %></span>:
+                        <!-- Output further property from the interated trade object -->
+                        <span><%= trades[i].created %></span>
+                    </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>### Footer ###</p>
+    </footer>
+<%- include('partials/_footer') %>
