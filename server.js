@@ -27,7 +27,7 @@ app.use('/', indexRouter);
 
 // adds the prefix "/api/trades" to all routes so that in the external routes file "routes/trades.route.js"
 // the route router.get("/", function(req, res) {...}); actually is /api/trades/ 
-app.use("/api/trades", tradesRouter);
+app.use('/api/trades', tradesRouter);
 
 // error handler
 app.use((err, req, res, next) => {
