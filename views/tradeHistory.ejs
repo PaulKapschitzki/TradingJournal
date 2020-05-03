@@ -1,0 +1,18 @@
+
+<%- include('partials/_header') %>
+    <h3>Trades</h3>
+    <ul class="trades">
+        <!-- Loop through trades -->
+        <% for (let i = 0; i < trades.length; i++) {%>
+            <li class="trade">
+                <!-- Output symbole from the iterated trad object -->
+                <span><%= trades[i].symbole %></span>:
+                <!-- Output further property from the interated trade object -->
+                <span><%= trades[i].created %></span>
+            </li>
+        <% } %>
+    </ul>
+
+    <!-- After making public/main.js public with middleware express.static -->
+    <script type="text/javascript" src="app.js"></script>
+<%- include('partials/_footer') %>
