@@ -5,8 +5,13 @@ exports.test = (req, res) => {
     res.send('Greetings from the Test controller');
 };
 
+// Display Trade create form on GET
+exports.trade_create_get = (req, res, next) => {
+    res.render('tradeEntryForm', { title: 'Enter New Trade!' });
+};
+
 // Add mapping for each item of trades.modules.js Schema - Create
-exports.trade_create = (req, res) => {
+exports.trade_create_post = (req, res, next) => {
     // validate request
     let trade = new Trades({
         tradeNumber:            req.body.tradeNumber,
@@ -56,6 +61,8 @@ exports.trade_create = (req, res) => {
         });
     });
     
+    // next(); // Incase the request doesn't get completed, the next method is called
+
     // res.send('New trade created successfully!');
     // res.redirect('/');
 };

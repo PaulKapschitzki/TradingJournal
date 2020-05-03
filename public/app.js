@@ -16,8 +16,7 @@ $(document).ready(() => {
         // console.log('New Trade-Button CLICKED');
         window.open(
             '/api/trades/all_trades',
-            'Trade History',
-            'menubar=yes,location=yes,resizable=no,scrollbars=yes,status=yes'
+            '_self'
         );
     });
     
