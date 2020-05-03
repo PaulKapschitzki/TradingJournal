@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 const TradesSchema = new Schema({
     // determining the data type for used values
     tradeNumber:            {type: Number, required: true},
-    numberPositions:        {type: Number, required: true, default: 2},
+    numberPositions:        {type: Number, min: [1, 'Must have at lease one position'], required: [true, 'Why no positions?'], default: 2},
     type:                   {type: String, required: true, default: 'Pending Order'}, // "Pending Order" or "Market Order"
     status:                 {type: String, required: true, default: 'Open'}, // Open, Active or Closed
     symbole:                {type: String, required: true, max: 6}, // Forex symbole
