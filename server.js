@@ -20,7 +20,9 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/javascript')));
+app.use(express.static(path.join(__dirname, 'public/images')));
+app.use(express.static(path.join(__dirname, 'public/stylesheets')));
 
 app.use('/', indexRouter);
 // app.use('/trades', tradesRouter);
