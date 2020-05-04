@@ -77,13 +77,13 @@ exports.all_trades = (req, res) => {
             if (data === undefined || data.length == 0) message = 'No trade found!';
             else message = 'Trades successfully retrieved';
             
-            res.render('tradeHistory', { title: 'Trade History' });
+            res.render('tradeHistory', { title: 'Trade History', data: data });
             // res.json(data);
-            res.send({
-                success: true,
-                message: message,
-                data: data
-            });
+            // res.send({
+            //     success: true,
+            //     message: message,
+            //     data: data
+            // });
         }).catch(err => {
             res.status(500).send({
                 success: false,

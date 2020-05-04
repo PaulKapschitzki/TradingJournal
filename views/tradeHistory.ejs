@@ -3,12 +3,12 @@
     <h3>Trades</h3>
     <ul class="trades">
         <!-- Loop through trades -->
-        <% for (let i = 0; i < trades.length; i++) {%>
+        <% for (let i = 0; i < data.length; i++) {%>
             <li class="trade">
                 <!-- Output symbole from the iterated trad object -->
-                <span><%= trades[i].symbole %></span>:
+                <span><%= data[i].symbole %></span>:
                 <!-- Output further property from the interated trade object -->
-                <span><%= trades[i].created %></span>
+                <span><%= data[i].created %></span>
             </li>
         <% } %>
     </ul>
