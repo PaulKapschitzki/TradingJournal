@@ -8,13 +8,14 @@ const TradesSchema = new Schema({
     // determining the data type for used values
     tradeNumber:            {type: Number, required: true},
     numberPositions:        {type: Number, min: [1, 'Must have at lease one position'], required: [true, 'Why no positions?'], default: 2},
-    type:                   {type: String, required: true, default: 'Pending Order'}, // "Pending Order" or "Market Order"
-    status:                 {type: String, required: true, default: 'Open'}, // Open, Active or Closed
+    type:                   {type: String, required: true, enum: ['Pending Order', 'Market Order'], default: 'Pending Order'}, // "Pending Order" or "Market Order"
+    pendingOrderType:       {type: String, required: false, enum: ['Buy Limit', 'Buy Stop', 'Sell Limit', 'Sell Stop']},
+    status:                 {type: String, required: true, enum: ['Open', 'Active', 'Closed'], default: 'Open'}, // Open, Active or Closed
     symbole:                {type: String, required: true, max: 6}, // Forex symbole
     setup:                  {type: String, required: true}, // Pinbar, 2BarReversal, ...
-    timeframe:              {type: String, required: true, default: 'D1'}, // M1, M5, M15, M30, H1, H4, D1, W1, M1
+    timeframe:              {type: String, required: true, enum: ['M1', 'M5', 'M15', 'M30', 'H1', 'H4', 'D1', 'W1', 'M1'], default: 'D1'}, // M1, M5, M15, M30, H1, H4, D1, W1, M1
     rating:                 {type: Number}, // rating of the setup, calculated through serveral factors
-    direction:              {type: String, required: true, max: 4}, // buy or sell (long or short)
+    direction:              {type: String, required: true, max: 4, enum: ['Buy', 'Sell']}, // buy or sell (long or short)
     volume:                 {type: Number, required: true, default: 0.01}, // Lots
     entryPrice:             {type: Number, required: true},
     exitPrice:              {type: Number, required: true},
@@ -28,7 +29,7 @@ const TradesSchema = new Schema({
     exitDateFirstTarget:    {type: Date, required: false, default: Date.now},
     exitDateSecondTarget:   {type: Date, required: false, default: Date.now},
     exitDateThirdTarget:    {type: Date, required: false, default: Date.now},
-    result:                 {type: String}, // Profit, Loss, BreakEven, Cancelled
+    result:                 {type: String, enum: ['Profit', 'Loss', 'Breakeven', 'Cancelled'],}, // Profit, Loss, BreakEven, Cancelled
     profitLossCurrency:     {type: Number, required: false},
     profitLossPips:         {type: Number, required: false},
     notesEntry:             {type: String, required: true},

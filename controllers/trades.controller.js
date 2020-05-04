@@ -18,6 +18,7 @@ exports.trade_create_post = (req, res, next) => {
         numberPositions:        req.body.numberPositions,
         position:               req.body.position,
         type:                   req.body.type,
+        pendingOrderType:       req.body.pendingOrderType,
         status:                 req.body.status,
         symbole:                req.body.symbole,
         setup:                  req.body.setup,
@@ -49,6 +50,7 @@ exports.trade_create_post = (req, res, next) => {
 
     trade.save()
         .then(data => {
+            // res.redirect('/all_trades')
             res.send({
                 success: true,
                 message: 'Trade successfully created',
@@ -75,6 +77,7 @@ exports.all_trades = (req, res) => {
             if (data === undefined || data.length == 0) message = 'No trade found!';
             else message = 'Trades successfully retrieved';
             
+            res.render('tradeHistory', { title: 'Trade History' });
             // res.json(data);
             res.send({
                 success: true,
