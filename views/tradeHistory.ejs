@@ -1,17 +1,80 @@
 
 <%- include('partials/_header') %>
-    <h3>Trades</h3>
-    <ul class="trades">
-        <!-- Loop through trades -->
-        <% for (let i = 0; i < data.length; i++) {%>
-            <li class="trade">
-                <!-- Output symbole from the iterated trad object -->
-                <span><%= data[i].symbole %></span>:
-                <!-- Output further property from the interated trade object -->
-                <span><%= data[i].created %></span>
-            </li>
-        <% } %>
-    </ul>
+    <caption id="tradeHistory">My Trades</caption>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Number of Positions</th>
+                <th scope="col">Type</th>
+                <th scope="col">Pending Order Type</th>
+                <th scope="col">Status</th>
+                <th scope="col">Symbole</th>
+                <th scope="col">Setup</th>
+                <th scope="col">Timeframe</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Volume</th>
+                <th scope="col">Entry Date</th>
+                <th scope="col">Entry Price</th>
+                <th scope="col">Stop Loss</th>
+                <th scope="col">Take Profit</th>
+                <th scope="col">Exit Date</th>
+                <th scope="col">Exit Price</th>
+                <th scope="col">Symbole</th>
+                <th scope="col">Setup</th>
+                <th scope="col">Timeframe</th>
+                <th scope="col">Result</th>
+                <th scope="col">Profit/Loss in Money</th>
+                <th scope="col">Profit/Loss in Pips</th>
+                <th scope="col">Comments on Entry</th>
+                <th scope="col">Comments on Exit</th>
+                <th scope="col">General Comments</th>
+                <th scope="col">According to Trade Plan</th>
+                <th scope="col">Screenshot on Entry</th>
+                <th scope="col">Screenshot on Exit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- Loop through trades -->
+                <!-- Choose Table instead of list, with a counter at the start of each visible row -->
+
+                <% for (let i = 0; i < data.length; i++) {%>
+                    <td><span><%= data[i].id %></span></td>
+                    <td><span><%= data[i].numberPositions %></span></td>
+                    <td><span><%= data[i].type %></span></td>
+                    <td><span><%= data[i].pendingOrderType %></span></td>
+                    <td><span><%= data[i].status %></span></td>
+                    <td><span><%= data[i].symbole %></span></td>
+                    <td><span><%= data[i].setup %></span></td>
+                    <td><span><%= data[i].timeFrame %></span></td>
+                    <td><span> Rating </span></td>
+                    <td><span><%= data[i].volume %></span></td>
+                    <td><span><%= data[i].entryDate %></span></td>
+                    <td><span><%= data[i].entryPrice %></span></td>
+                    <td><span><%= data[i].stopLoss %></span></td>
+                    <td><span><%= data[i].takeProfit %></span></td>
+                    <td><span><%= data[i].exitDate %></span></td>
+                    <td><span><%= data[i].exitPrice %></span></td>
+                    <td><span><%= data[i].result %></span></td>
+                    <td><span><%= data[i].profitLossCurrency %></span></td>
+                    <td><span><%= data[i].profitLossPips %></span></td>
+                    <td><span><%= data[i].commentsEntry %></span></td>
+                    <td><span><%= data[i].commentsExit %></span></td>
+                    <td><span><%= data[i].generalComments %></span></td>
+                    <td><span><%= data[i].accordingToPlan %></span></td>
+                    <td><span><%= data[i].imageEntry %></span></td>
+                    <td><span><%= data[i].imageExit %></span></td>
+                <% } %>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Overall Gain</td>
+                <td>0.000,00 €</td>
+            </tr>
+        </tfoot>
+    </table>
 
     <!-- After making public/main.js public with middleware express.static -->
     <script type="text/javascript" src="app.js"></script>
