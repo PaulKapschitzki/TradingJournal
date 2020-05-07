@@ -14,7 +14,7 @@ exports.trade_create_get = (req, res, next) => {
 exports.trade_create_post = (req, res, next) => {
     // validate request
     let trade = new Trades({
-        tradeNumber:            req.body.tradeNumber,
+        // tradeNumber:            req.body.tradeNumber, // is only shown in frontend
         numberPositions:        req.body.numberPositions,
         position:               req.body.position,
         type:                   req.body.type,
@@ -29,6 +29,7 @@ exports.trade_create_post = (req, res, next) => {
         entryPrice:             req.body.entryPrice,
         exitPrice:              req.body.exitPrice,
         stopLoss:               req.body.stopLoss,
+        takeProfit:             req.body.takeProfit,
         firstTraget:            req.body.firstTraget,
         secondTarget:           req.body.secondTarget,
         thirdTarget:            req.body.thirdTarget,
@@ -40,9 +41,9 @@ exports.trade_create_post = (req, res, next) => {
         result:                 req.body.result,
         profitLossCurrency:     req.body.profitLossCurrency,
         profitLossPips:         req.body.profitLossPips,
-        notesEntry:             req.body.notesEntry,
-        notesExit:              req.body.notesExit,
-        notesGeneral:           req.body.notesGeneral,
+        commentsEntry:          req.body.notesEntry,
+        commentsExit:           req.body.notesExit,
+        commentsGeneral:        req.body.notesGeneral,
         accordingToPlan:        req.body.accordingToPlan,
         imageEntry:             req.body.imageEntry,
         imageExit:              req.body.imageExit
