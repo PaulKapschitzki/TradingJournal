@@ -16,25 +16,26 @@ const TradesSchema = new Schema({
     timeframe:              {type: String, required: true, enum: ['M1', 'M5', 'M15', 'M30', 'H1', 'H4', 'D1', 'W1', 'M1'], default: 'D1'}, // M1, M5, M15, M30, H1, H4, D1, W1, M1
     rating:                 {type: Number}, // rating of the setup, calculated through serveral factors
     direction:              {type: String, required: true, max: 4, enum: ['Buy', 'Sell']}, // buy or sell (long or short)
-    volume:                 {type: Number, required: true, default: 0.01}, // Lots
+    volume:                 {type: Number, required: true, default: 0.10}, // Lots
     entryPrice:             {type: Number, required: true},
     exitPrice:              {type: Number, required: true},
     stopLoss:               {type: Number, required: true},
+    takeProfit:             {type: Number, required: false},
     firstTraget:            {type: Number, required: true},
     secondTarget:           {type: Number, required: true},
     thirdTarget:            {type: Number, required: true},
     created:                {type: Date, required: true, default: Date.now},
     entryDate:              {type: Date, required: false, default: Date.now},
     exitDate:               {type: Date, required: false, default: Date.now},
-    exitDateFirstTarget:    {type: Date, required: false, default: Date.now},
-    exitDateSecondTarget:   {type: Date, required: false, default: Date.now},
-    exitDateThirdTarget:    {type: Date, required: false, default: Date.now},
+    exitDateFirstTarget:    {type: Date, required: false, default: Date.now}, // DEPRECATED?
+    exitDateSecondTarget:   {type: Date, required: false, default: Date.now}, // DEPRECATED?
+    exitDateThirdTarget:    {type: Date, required: false, default: Date.now}, // DEPRECATED?
     result:                 {type: String, enum: ['Profit', 'Loss', 'Breakeven', 'Cancelled'],}, // Profit, Loss, BreakEven, Cancelled
     profitLossCurrency:     {type: Number, required: false},
     profitLossPips:         {type: Number, required: false},
-    notesEntry:             {type: String, required: true},
-    notesExit:              {type: String},
-    notesGeneral:           {type: String},
+    commentsEntry:          {type: String, required: true},
+    commentsExit:           {type: String},
+    commentsGeneral:        {type: String},
     accordingToPlan:        {type: String, required: false}, // Yes or No
     imageEntry:             {type: Buffer},
     imageExit:              {type: Buffer}
