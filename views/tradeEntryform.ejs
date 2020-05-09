@@ -1,32 +1,124 @@
 <%- include('partials/_header') %>
     <header>
-        <p>### Header ###</p>
         <h1>Enter a new trade</h1>
     </header>
     <main>
-        <p>### Main ###</p>
         <!-- form for entering parameters of current trade -->
         <section id="tradeEntry">
-            <p>### Section "tradeEntry" ###</p>
+            <!-- <p>### Section "tradeEntry" ###</p> -->
             <!-- using method="POST" to enter data into database -->
             <form action="/trades" method="POST">
-                <p>### Input Form Trade ###</p>
-                <input type="text" placeholder="Symbole" name="symbole">
-                <label>Order</label>
+                <label>Number of Positions</label>
+                    <input type="number" placeholder="2" name="numberPositions">
+                <br>
+                <label>Order Type</label>
+                    <select name="type" size="1">
+                        <option>Pending Order</option>
+                        <option>Market Order</option>
+                    </select>
+                <br>
+                <label>Pending Order Type</label>
+                    <select name="pendingOrderType" size="1">
+                        <option>Buy Limit</option>
+                        <option>Buy Stop</option>
+                        <option>Sell Limit</option>
+                        <option>Sell Stop</option>
+                    </select>
+                <br>
+                <label>Symbole</label> <!-- Symbole needs to show selection list from database -->
+                    <input type="text" placeholder="e.g. EURUSD" name="symbole">
+                <br>
+                <label>Buy or Sell</label>
                 <!-- size attribute determines the standard number of shown lines in selection list -->
                 <!-- e.g. size="2" would show "Buy" and "Sell" at the same time-->
                     <select name="direction" size="1">
                         <option>Buy</option>
                         <option>Sell</option>
                     </select>
+                <br>
                 <label>Entry Price</label>
                 <!-- step attribute determines determines the in-/decremental steps for the number -->
                 <!-- price in forex is given with 5 decimal -->
-                    <input type="number" value="0.00001" name="price" step="0.00001">
+                    <input type="number" value="1.00000" name="price" step="0.00001">
+                <br>
                 <label>Stop Loss</label>
-                    <input type="number" value="0.00001" name="stopLoss" step="0.00001">
+                    <input type="number" value="1.00000" name="stopLoss" step="0.00001">
+                <br>
                 <label>Take Profit</label>
-                    <input type="number" value="0.00001" name="entry" step="0.00001">
+                    <input type="number" value="1.00000" name="entry" step="0.00001">
+                <br>
+                <label>Exit Price</label>
+                    <input type="number" value="1.00000" name="exitPrice" step="0.00001">
+                <br>
+                <label>RRR (Risk Return Ratio)</label>
+                    <input type="number" name="riskReturnRatio" value="1.0" readonly>
+                <br>
+                <label>Trade Setup</label>
+                    <select name="setup" size="1"> <!-- Should be filled with database entries later on -->
+                        <option>Pinbar</option>
+                        <option>2 Bar Reversal</option>
+                        <option>3 Bar Reversal</option>
+                        <option>BUEB</option>
+                        <option>BEEB</option>
+                        <option>COIB</option>
+                        <option>Breakout</option>
+                        <option>Limit Buy</option>
+                        <option>Limit Sell</option>
+                    </select>
+                <br>
+                <label>Timeframe</label>
+                    <select name="timeframe" size="1"> <!-- Should be filled with database entries later on -->
+                        <option>M1</option>
+                        <option>M5</option>
+                        <option>M15</option>
+                        <option>M30</option>
+                        <option>H1</option>
+                        <option>H4</option>
+                        <option>D1</option>
+                        <option>W1</option>
+                        <option>M1</option>
+                    </select>
+                <br>
+                <label>Entry Date</label>
+                    <input type="date" name="entryDate">
+                <br>
+                <label>Exit Date</label>
+                    <input type="date" name="exitDate">
+                <br>
+                <label>Result</label>
+                    <select name="result" size="1">
+                        <option>Profit</option>
+                        <option>Loss</option>
+                        <option>Breakeven</option>
+                        <option>Cancelled</option>
+                    </select>
+                <br>
+                <label>Profit/Loss in Pips</label>
+                    <input type="text" name="profitLossPips" value="0">
+                <br>
+                <label>Profit/Loss in Money</label>
+                    <input type="number" name="profitLossCurrency" value="0,00" step="0,01" pattern="^\d+(\.|\,)\d{2}$">
+                <br>
+                <label>Trade according to Plan?</label>
+                    <select name="result" size="1">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                <br>
+                <label>Comments on Entry</label>
+                    <textarea name="commentsOnEntry" placeholder="e.g. That looks like a great trade!" rows="4" cols="40"></textarea>
+                <br>
+                <label>Comments on Exit</label>
+                    <textarea name="commentsOnExit" placeholder="e.g. And the trade looked so good!" rows="4" cols="40"></textarea>
+                <br>
+                <label>Wählen Sie ein Bild (*.jpg, *.png, *.gif usw.) von Ihrem Rechner aus.
+                    <input name="imageEntry" type="file" size="50" accept="bild/*"> 
+                </label> 
+                <br>
+                <label>Wählen Sie ein Bild (*.jpg, *.png, *.gif usw.) von Ihrem Rechner aus.
+                    <input name="imageExit" type="file" size="50" accept="bild/*"> 
+                </label> 
+                <br>
                 <button id="submitTrade" type="submit">Submit</button>
             </form>
         </section>

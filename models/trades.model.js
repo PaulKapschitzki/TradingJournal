@@ -21,9 +21,10 @@ const TradesSchema = new Schema({
     exitPrice:              {type: Number, required: true},
     stopLoss:               {type: Number, required: true},
     takeProfit:             {type: Number, required: false},
-    firstTraget:            {type: Number, required: true},
-    secondTarget:           {type: Number, required: true},
-    thirdTarget:            {type: Number, required: true},
+    riskReturnRatio:        {type: Number},
+    firstTraget:            {type: Number, required: true}, // DEPRECATED?
+    secondTarget:           {type: Number, required: true}, // DEPRECATED?
+    thirdTarget:            {type: Number, required: true}, // DEPRECATED?
     created:                {type: Date, required: true, default: Date.now},
     entryDate:              {type: Date, required: false, default: Date.now},
     exitDate:               {type: Date, required: false, default: Date.now},
