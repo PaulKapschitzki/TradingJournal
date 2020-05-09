@@ -9,7 +9,11 @@
             <!-- using method="POST" to enter data into database -->
             <form action="/api/trades/create" method="POST">
                 <label>Number of Positions</label>
-                    <input type="number" placeholder="2" name="numberPositions">
+                    <select type="number" name="numberOfPositions" size="1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
                 <br>
                 <label>Order Type</label>
                     <select name="type" size="1">
@@ -36,16 +40,19 @@
                         <option>Sell</option>
                     </select>
                 <br>
+                <label>Volume</label> <!-- Symbole needs to show selection list from database -->
+                    <input type="number" value="0.10" name="volume" step="0.01">
+                <br>
                 <label>Entry Price</label>
                 <!-- step attribute determines determines the in-/decremental steps for the number -->
                 <!-- price in forex is given with 5 decimal -->
-                    <input type="number" value="1.00000" name="price" step="0.00001">
+                    <input type="number" value=1.00000 min="0.00000" max="10000.00000" step="0.00001" name="entryPrice">
                 <br>
                 <label>Stop Loss</label>
-                    <input type="number" value="1.00000" name="stopLoss" step="0.00001">
+                    <input type="number" value=1.00000 min="0.00000" max="10000.00000" step="0.00001" name="stopLoss">
                 <br>
                 <label>Take Profit</label>
-                    <input type="number" value="1.00000" name="entry" step="0.00001">
+                    <input type="number" value=1.00000 min="0.00000" max="10000.00000" step="0.00001" name="takeProfit">
                 <br>
                 <label>RRR (Risk Return Ratio)</label>
                     <input type="number" name="riskReturnRatio" value="1.0" readonly>
@@ -81,12 +88,12 @@
                 <br>
                 <label>Trade according to Plan?</label>
                     <select name="result" size="1">
-                        <option>Yes</option>
-                        <option>No</option>
+                        <option>Profit</option>
+                        <option>Loss</option>
                     </select>
                 <br>
                 <label>Comments on Entry</label>
-                    <textarea name="commentsOnEntry" placeholder="e.g. That looks like a great trade!" rows="4" cols="40"></textarea>
+                    <textarea name="commentsEntry" placeholder="e.g. That looks like a great trade!" rows="4" cols="40"></textarea>
                 <br>
                 <label>Wählen Sie ein Bild (*.jpg, *.png, *.gif usw.) von Ihrem Rechner aus.
                     <input name="imageEntry" type="file" size="50" accept="bild/*"> 

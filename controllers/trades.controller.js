@@ -41,9 +41,9 @@ exports.trade_create_post = (req, res, next) => {
         result:                     req.body.result,
         profitLossCurrency:         req.body.profitLossCurrency,
         profitLossPips:             req.body.profitLossPips,
-        commentsEntry:              req.body.notesEntry,
-        commentsExit:               req.body.notesExit,
-        commentsGeneral:            req.body.notesGeneral,
+        commentsEntry:              req.body.commentsEntry,
+        commentsExit:               req.body.commentsExit,
+        commentsGeneral:            req.body.commentsGeneral,
         accordingToPlan:            req.body.accordingToPlan,
         imageEntry:                 req.body.imageEntry,
         imageExit:                  req.body.imageExit

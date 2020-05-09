@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 
 const TradesSchema = new Schema({
     // determining the data type for used values
-    tradeNumber:                {type: Number, required: true},
+    tradeNumber:                {type: Number},
     numberPositions:            {type: Number, min: [1, 'Must have at lease one position'], required: [true, 'Why no positions?'], default: 2},
     type:                       {type: String, required: true, enum: ['Pending Order', 'Market Order'], default: 'Pending Order'}, // "Pending Order" or "Market Order"
     pendingOrderType:           {type: String, required: false, enum: ['Buy Limit', 'Buy Stop', 'Sell Limit', 'Sell Stop']},
@@ -16,7 +16,7 @@ const TradesSchema = new Schema({
     timeframe:                  {type: String, required: true, enum: ['M1', 'M5', 'M15', 'M30', 'H1', 'H4', 'D1', 'W1', 'M1'], default: 'D1'}, // M1, M5, M15, M30, H1, H4, D1, W1, M1
     rating:                     {type: Number}, // rating of the setup, calculated through serveral factors
     direction:                  {type: String, required: true, max: 4, enum: ['Buy', 'Sell']}, // buy or sell (long or short)
-    volume:                     {type: Number, required: true, default: 0.10}, // Lots
+    volume:                     {type: Number, required: true}, // Lots
     entryPrice:                 {type: Number, required: true},
     stopLoss:                   {type: Number, required: true},
     takeProfit:                 {type: Number, required: false},
@@ -30,7 +30,7 @@ const TradesSchema = new Schema({
     commentsEntry:              {type: String, required: true},
     commentsExit:               {type: String},
     commentsGeneral:            {type: String},
-    accordingToPlan:            {type: String, required: false}, // Yes or No
+    accordingToPlan:            {type: String, required: false, enum: ['Yes', 'No']}, // Yes or No
     imageEntry:                 {type: Buffer},
     imageExit:                  {type: Buffer}
 });
