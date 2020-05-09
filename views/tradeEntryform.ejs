@@ -7,7 +7,7 @@
         <section id="tradeEntry">
             <!-- <p>### Section "tradeEntry" ###</p> -->
             <!-- using method="POST" to enter data into database -->
-            <form action="/trades" method="POST">
+            <form action="/api/trades/create" method="POST">
                 <label>Number of Positions</label>
                     <input type="number" placeholder="2" name="numberPositions">
                 <br>
@@ -47,9 +47,6 @@
                 <label>Take Profit</label>
                     <input type="number" value="1.00000" name="entry" step="0.00001">
                 <br>
-                <label>Exit Price</label>
-                    <input type="number" value="1.00000" name="exitPrice" step="0.00001">
-                <br>
                 <label>RRR (Risk Return Ratio)</label>
                     <input type="number" name="riskReturnRatio" value="1.0" readonly>
                 <br>
@@ -82,23 +79,6 @@
                 <label>Entry Date</label>
                     <input type="date" name="entryDate">
                 <br>
-                <label>Exit Date</label>
-                    <input type="date" name="exitDate">
-                <br>
-                <label>Result</label>
-                    <select name="result" size="1">
-                        <option>Profit</option>
-                        <option>Loss</option>
-                        <option>Breakeven</option>
-                        <option>Cancelled</option>
-                    </select>
-                <br>
-                <label>Profit/Loss in Pips</label>
-                    <input type="text" name="profitLossPips" value="0">
-                <br>
-                <label>Profit/Loss in Money</label>
-                    <input type="number" name="profitLossCurrency" value="0,00" step="0,01" pattern="^\d+(\.|\,)\d{2}$">
-                <br>
                 <label>Trade according to Plan?</label>
                     <select name="result" size="1">
                         <option>Yes</option>
@@ -108,16 +88,10 @@
                 <label>Comments on Entry</label>
                     <textarea name="commentsOnEntry" placeholder="e.g. That looks like a great trade!" rows="4" cols="40"></textarea>
                 <br>
-                <label>Comments on Exit</label>
-                    <textarea name="commentsOnExit" placeholder="e.g. And the trade looked so good!" rows="4" cols="40"></textarea>
-                <br>
                 <label>Wählen Sie ein Bild (*.jpg, *.png, *.gif usw.) von Ihrem Rechner aus.
                     <input name="imageEntry" type="file" size="50" accept="bild/*"> 
                 </label> 
                 <br>
-                <label>Wählen Sie ein Bild (*.jpg, *.png, *.gif usw.) von Ihrem Rechner aus.
-                    <input name="imageExit" type="file" size="50" accept="bild/*"> 
-                </label> 
                 <br>
                 <button id="submitTrade" type="submit">Submit</button>
             </form>
