@@ -26,7 +26,7 @@ $(document).ready(() => {
         window.open(
             '/api/trades/create',
             'New Trade Entry',
-            'width=800px,height=650px,menubar=yes,location=yes,resizable=no,scrollbars=yes,status=yes'
+            'width=900px,height=910px,menubar=yes,location=yes,resizable=no,scrollbars=yes,status=yes'
         );
     });
 });
