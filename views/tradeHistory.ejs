@@ -1,10 +1,10 @@
 
 <%- include('partials/_header') %>
     <caption id="tradeHistoryHeadline">My Trades</caption>
-    <table>
-        <thead>
+    <table id="tradeHistory" class="table">
+        <thead class="thead-dark">
             <tr>
-                <th scope="col">No.</th>
+                <th scope="col">#</th>
                 <th scope="col">Number of Positions</th>
                 <th scope="col">Type</th>
                 <th scope="col">Pending Order Type</th>
@@ -35,12 +35,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <!-- Loop through trades -->
-                <!-- Choose Table instead of list, with a counter at the start of each visible row -->
-
-                <% for (let i = 0; i < data.length; i++) {%>
-                    <td><span><%= data[i].id %></span></td>
+            <!-- Loop through trades in reverse to show new at the top -->
+            <!-- IMPLEMENT LAZY LOAD!!! -->
+            <% for (let i = data.length - 1; i > 0; i--) {%>
+                <tr>
+                    <td><span><%= i %></span></td>
                     <td><span><%= data[i].numberPositions %></span></td>
                     <td><span><%= data[i].type %></span></td>
                     <td><span><%= data[i].pendingOrderType %></span></td>
@@ -65,8 +64,8 @@
                     <td><span><%= data[i].accordingToPlan %></span></td>
                     <td><span><%= data[i].imageEntry %></span></td>
                     <td><span><%= data[i].imageExit %></span></td>
-                <% } %>
-            </tr>
+                </tr>
+            <% } %>
         </tbody>
         <tfoot>
             <tr>
