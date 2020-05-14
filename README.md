@@ -14,6 +14,8 @@ This is an app to track trades made with a broker of my choice.
 #### Features
 - Charts for performance
 - Charts for all kinds of statistics
+- News
+- PriceAction Trade Setups (Auto-Chartist?)
 
 ### Trades
 - update trade entry popup
