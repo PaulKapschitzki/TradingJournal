@@ -2,23 +2,24 @@
 
 html,
 body {
-  height: 100vh;
+  height: 100%;
+  margin: 0;
 }
+/* 
+.wrapper {
+  min-height: 100%;
+} */
 
-.container {
+/* .container {
   height: 100vh;
   margin-top: 10px;
-}
+} */
 
-#page-content {
-  flex: 1 0 auto;
-}
-
-#sticky-footer {
+/* #sticky-footer {
   flex-shrink: none;
   bottom: 0;
-  width: 100vw;
-}
+  width: 100%;
+} */
 
 /* Other Classes for Page Styling */
 
