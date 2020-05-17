@@ -2,7 +2,12 @@
 
 html,
 body {
-  height: 100%;
+  height: 100vh;
+}
+
+.container {
+  height: 100vh;
+  margin-top: 10px;
 }
 
 #page-content {
@@ -12,6 +17,7 @@ body {
 #sticky-footer {
   flex-shrink: none;
   bottom: 0;
+  width: 100vw;
 }
 
 /* Other Classes for Page Styling */
