@@ -13,7 +13,7 @@ const TradesSchema = new Schema({
     status:                     {type: String, required: true, enum: ['Open', 'Active', 'Closed'], default: 'Open'}, // Open, Active or Closed
     symbole:                    {type: String, required: true, max: 6}, // Forex symbole
     setup:                      {type: String, required: true}, // Pinbar, 2BarReversal, ...
-    timeframe:                  {type: String, required: true, enum: ['M1', 'M5', 'M15', 'M30', 'H1', 'H4', 'D1', 'W1', 'M1'], default: 'D1'}, // M1, M5, M15, M30, H1, H4, D1, W1, M1
+    timeframe:                  {type: String, required: true, enum: ['M1', 'M5', 'M15', 'M30', 'H1', 'H4', 'D1', 'W1', 'MN'], default: 'D1'}, // M1, M5, M15, M30, H1, H4, D1, W1, M1
     rating:                     {type: Number}, // rating of the setup, calculated through serveral factors
     direction:                  {type: String, required: true, max: 4, enum: ['Buy', 'Sell']}, // buy or sell (long or short)
     volume:                     {type: Number, required: true}, // Lots
