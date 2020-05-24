@@ -13,7 +13,6 @@ $(document).ready(() => {
 
     // Show trade info for all previous trades
     $('#showAllTrades').on('click', () => {
-        // console.log('New Trade-Button CLICKED');
         window.open(
             '/api/trades/all_trades',
             '_self'
