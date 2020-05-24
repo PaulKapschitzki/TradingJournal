@@ -6,7 +6,7 @@
     </div>    
 
     <caption id="tradeHistoryHeadline">My Trade History</caption>
-    <table id="tradeHistory" class="table">
+    <table id="tradeHistory" class="table table-hover">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
@@ -42,7 +42,8 @@
         <tbody>
             <!-- Loop through trades in reverse to show new at the top -->
             <!-- IMPLEMENT LAZY LOAD!!! -->
-            <% for (let i = data.length - 1; i > 0; i--) {%>
+            
+            <% for (let i = data.length - 1; i >= 0; i--) {%>
                 <tr>
                     <td><span><%= i %></span></td>
                     <td><span><%= data[i].numberPositions %></span></td>
