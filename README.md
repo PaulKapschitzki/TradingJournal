@@ -2,8 +2,7 @@
 This is an app to track trades made with a broker of my choice.
 
 ## Current todo
-- changing navbar to navigate to trade history
-- opening new trade from trade history
+- make trades in trade history table editable, deleteable
 
 ## Features that I want to implement
 ### Overall
@@ -24,6 +23,14 @@ This is an app to track trades made with a broker of my choice.
 - allow trade entry from
 - allow editing trades from trade history page
 - open Position Size Calculator from Trade Entry Popup
+- add trade plan checklist for entry form and details (editing) form
+
+### Trade Plan
+- create a possibility to enter a trade plan
+- make trade plan check list for entering and managing a trade
 
 ## Features already implemented
 - trade history as a table instead of a list
+- changing navbar to navigate to trade history
+- opening new trade from trade history
+- make entry form with bootstrap
