@@ -14,7 +14,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">Symbole</span>
                         </div>
-                        <input name="symbole" placeholder="e.g. EURUSD" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        <input id="symbole" name="symbole" placeholder="e.g. EURUSD" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                     </div>
                     <div class="input-group mb-3 col">
                         <div class="input-group-prepend">
@@ -62,9 +62,9 @@
                         </div>
                         <select class="custom-select" id="pendingOrderType" name="pendingOrderType">
                             <option value="Buy Limit">Buy Limit</option>
-                            <option value="Buy Stop">Buy Stop</option>
-                            <option value="Sell Limit">Buy Limit</option>
-                            <option value="Sell Stop">Buy Stop</option>
+                            <option value="Buy Stop" selected>Buy Stop</option>
+                            <option value="Sell Limit">Sell Limit</option>
+                            <option value="Sell Stop">Sell Stop</option>
                         </select>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                             <option value="M30">M30</option>
                             <option value="H1">H1</option>
                             <option value="H4">H4</option>
-                            <option value="D1">D1</option>
+                            <option value="D1" selected>D1</option>
                             <option value="W1">W1</option>
                             <option value="MN">MN</option>
                         </select>
