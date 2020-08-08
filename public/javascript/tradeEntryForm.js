@@ -3,9 +3,9 @@ $(document).ready(() => {
         window.close();
     });
 
-    $('#submitTrade').on('click', () => {
-        window.close(
-            '/api/trades/create'
-        );
-    });
+    // $('#submitTrade').on('click', () => {
+    //     window.close(
+    //         '/api/trades/create'
+    //     );
+    // });
 });

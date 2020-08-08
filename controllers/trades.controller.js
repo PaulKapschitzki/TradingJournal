@@ -51,7 +51,6 @@ exports.trade_create_post = (req, res, next) => {
 
     trade.save()
         .then(data => {
-            // res.redirect('/all_trades')
             res.send({
                 success: true,
                 message: 'Trade successfully created',
@@ -63,11 +62,6 @@ exports.trade_create_post = (req, res, next) => {
                 message: err.message || 'Some error occured while creating the trade'
         });
     });
-    
-    // next(); // Incase the request doesn't get completed, the next method is called
-
-    // res.send('New trade created successfully!');
-    // res.redirect('/');
 };
 
 // retrieve and return all trades.
@@ -175,3 +169,8 @@ exports.trade_delete = (req, res) => {
         });
     });
 };
+
+// trades check list
+exports.trade_check_list = (req, res) => {
+    res.render('tradeCheckList', { title: 'Check List!' });
+}
