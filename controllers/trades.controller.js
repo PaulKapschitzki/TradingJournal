@@ -5,6 +5,12 @@ exports.test = (req, res) => {
     res.send('Greetings from the Test controller');
 };
 
+// trades check list
+// exports.trade_check_list = (req, res) => {
+//     res.send('Greetings from the trade check list');
+//     // res.render('tradeCheckList', { title: 'Check List!' });
+// }
+
 // Display Trade create form on GET
 exports.trade_create_get = (req, res, next) => {
     res.render('tradeEntryForm', { title: 'Enter New Trade!' });
@@ -169,8 +175,3 @@ exports.trade_delete = (req, res) => {
         });
     });
 };
-
-// trades check list
-exports.trade_check_list = (req, res) => {
-    res.render('tradeCheckList', { title: 'Check List!' });
-}

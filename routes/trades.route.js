@@ -29,8 +29,4 @@ router.put('/:id/edit', trades_controller.trade_update);
 // Delete an item in the database - Delete route
 router.delete('/:id/delete', trades_controller.trade_delete);
 
-// Pre-Trade Check List
-// !!! will be separated later
-router.get('/trade_check_list', trades_controller.trade_check_list);
-
 module.exports = router;
