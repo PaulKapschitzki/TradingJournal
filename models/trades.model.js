@@ -30,7 +30,7 @@ const TradesSchema = new Schema({
     commentsEntry:              {type: String, required: true},
     commentsExit:               {type: String},
     commentsGeneral:            {type: String},
-    accordingToPlan:            {type: String, required: false, enum: ['Yes', 'No']}, // Yes or No
+    accordingToPlan:            {type: String, required: false, enum: ['Yes', 'No', 'Choose']}, // Yes or No or Choose
     imageEntry:                 {type: Buffer},
     imageExit:                  {type: Buffer}
 });
