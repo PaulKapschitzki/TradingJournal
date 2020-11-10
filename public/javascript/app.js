@@ -12,20 +12,12 @@ $(document).ready(() => {
     // });
 
     // Show trade info for all previous trades
-    $('#showAllTrades').on('click', () => {
-        window.open(
-            '/api/trades/all_trades',
-            '_self'
-        );
-    });
-
-    // Show trade info for all previous trades
-    $('#showAllTrades').on('click', () => {
-        window.open(
-            '/api/trades/trade_check_list',
-            '_self'
-        );
-    });
+    // $('#showAllTrades').on('click', () => {
+    //     window.open(
+    //         '/api/trades/all_trades',
+    //         '_self'
+    //     );
+    // });
     
     // Open entry form for new trade in new window
     $('#newTrade').on('click', () => {
