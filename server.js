@@ -18,8 +18,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
+// Make additions to the url, which would would be added to the url when for example hitting a submit button, available in req.body object
+// The following to lines perhaps have to be switched to:
+// app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(express.static(path.join(__dirname, 'public/javascript')));
 app.use(express.static(path.join(__dirname, 'public/images')));
 app.use(express.static(path.join(__dirname, 'public/stylesheets')));
