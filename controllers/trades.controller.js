@@ -135,15 +135,15 @@ exports.trade_update = (req, res) => {
                 data: data
             });
         }).catch(err => {
-        if(err.kind === 'ObjectId') {
-            return res.status(404).send({
+            if(err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    success: false,
+                    message: 'Trade not found with id ' + req.params.id
+                });
+            }
+            return res.status(500).send({
                 success: false,
-                message: 'Trade not found with id ' + req.params.id
-            });
-        }
-        return res.status(500).send({
-            success: false,
-            message: 'Error updating trade with id ' + req.params.id
+                message: 'Error updating trade with id ' + req.params.id
         });
     });
 };
