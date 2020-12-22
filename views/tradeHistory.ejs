@@ -10,6 +10,7 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
+                <th></th>
                 <th scope="col">Number of Positions</th>
                 <th scope="col">Type</th>
                 <th scope="col">Pending Order Type</th>
@@ -40,12 +41,16 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Loop through trades in reverse to show new at the top -->
+            <!-- Loop through trades in reverse to show newest at the top -->
             <!-- IMPLEMENT LAZY LOAD!!! -->
             
             <% for (let i = data.length - 1; i >= 0; i--) {%>
-                <tr>
+                <tr class="tradeTable" id=<%= data[i]._id %>>
                     <td><span><%= i %></span></td>
+                    <td>
+                        <button class="editRow">Edit</button>
+                        <button class="deleteTrade">Delete</button>
+                    </td>
                     <td><span><%= data[i].numberPositions %></span></td>
                     <td><span><%= data[i].type %></span></td>
                     <td><span><%= data[i].pendingOrderType %></span></td>
